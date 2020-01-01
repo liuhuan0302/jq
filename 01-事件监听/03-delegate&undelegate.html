@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        section{
+            width:600px;
+            background:#000;
+        }
+        div{
+            width:100px;
+            height:100px;
+            background:#dd0;
+            margin:20px;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div></div>
+        <div class='specail'></div>
+        <div></div>
+    </section>
+    <script src='./jquery-1.11.3.min.js'></script>
+    <script>
+        /*
+        
+            delegate()  事件监听(可以对指定子元素的事件绑定,可以对未来元素的绑定,可以实现事件委托)
+                参数：
+                    0: 指派做绑定的子元素
+                    1：事件类型
+                    2：数据（可以传递给事件对象）（事件对象e.data 接收数据）
+                    3：回调函数（事件处理程序）
+
+            undelegate()  事件解绑
+                参数：
+                    1：解绑的事件类型
+                    2：解绑的方法（如果方法不传递。解绑所有）
+
+
+
+
+            注：制定子元素的事件绑定，可以实现事件委托   对未来元素的绑定
+        */
+
+        function fn1(){
+            console.log('单击事件');
+        }
+        function fn2(){
+            console.log('鼠标滑过触发')
+        }
+
+        $('section').delegate('div','click',fn1);
+        $('<div></div>').appendTo($('section'));
+
+    </script>
+</body>
+</html>

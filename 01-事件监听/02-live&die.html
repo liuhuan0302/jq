@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        section{
+            width:600px;
+            background:#000;
+        }
+        div{
+            width:100px;
+            height:100px;
+            background:#dd0;
+            margin:20px;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div></div>
+        <div></div>
+        <div></div>
+    </section>
+    <!-- <script src='./jquery-1.11.3.min.js'></script> -->
+    <script src="https://code.jquery.com/jquery-1.6.4.min.js"></script>
+    <script>
+        /*
+        
+            live()  事件监听
+                参数：
+                    1：事件类型
+                    2：数据（可以传递给事件对象）（事件对象e.data 接收数据）
+                    3：回调函数（事件处理程序）
+
+            die()  事件解绑
+                参数：
+                    1：解绑的事件类型
+                    2：解绑的方法（如果方法不传递。解绑所有）
+
+
+
+
+            注：对jquery版本有要求：  1.7以下！        可以实现对未来元素的绑定
+        */
+
+        function fn1(){
+            console.log('单击事件');
+        }
+        function fn2(){
+            console.log('鼠标滑过触发')
+        }
+
+        $('section div').live('click',fn1);
+
+
+        $('<div></div>').appendTo($('section'));
+
+    </script>
+</body>
+</html>

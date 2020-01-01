@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        section{
+            width:600px;
+            background:#000;
+        }
+        div{
+            width:100px;
+            height:100px;
+            background:#dd0;
+            margin:20px;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div></div>
+        <div></div>
+        <div></div>
+    </section>
+    <script src='./jquery-1.11.3.min.js'></script>
+    <script>
+        /*
+            on()  事件监听(最常用的)(可以对指定子元素的事件绑定,可以对未来元素的绑定,可以实现事件委托)
+                参数：
+                    0：事件类型
+                    1: 指定绑定事件的子元素
+                    2：数据（可以传递给事件对象）（事件对象e.data 接收数据）
+                    3：回调函数（事件处理程序）
+
+            off()  事件解绑
+                参数：
+                    1：解绑的事件类型
+                    2：解绑的方法（如果方法不传递。解绑所有）
+
+            jquery 中更改this指向:
+                $.proxy(); //代理
+                两个参数:
+                    1:代理的方法
+                    2:this指向
+
+        */
+
+        function fn1(){
+            console.log('单击事件');
+        }
+        function fn2(){
+            console.log('鼠标滑过触发')
+        }
+
+        $('section').on('click','div',fn1);
+
+        $('<div></div>').appendTo($('section'));
+    </script>
+</body>
+</html>

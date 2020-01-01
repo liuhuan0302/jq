@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            margin: 20px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script src="./01-事件监听/jquery-1.11.3.min.js"></script>
+    <script>
+        /*
+         /*
+            jquery里面 方法  分为两类 
+
+            1：dom节点调用
+
+                $('div').css()
+                $('div').animated()
+                $('div').html()
+                ......
+
+
+            2：$.调用
+                $.ajax()
+                $.getJSON()
+                $.getScript()
+                $.post()
+                $.get()  
+        */
+
+       
+
+        /*
+            $('div').addBg();
+            $.Min(1,2,3,4,5,7);
+        */
+
+
+        /*
+            jQuery.fn.extend(object) 
+                参数是一个对象：
+                    里面的每一个属性都是一个扩展的方法
+
+
+
+            jQuery.extend(object) 
+                参数是一个对象：
+                    对象里面的每个属性就是一个方法
+
+        */
+
+        
+      
+        jQuery.fn.extend({
+            //让调用当前方法的元素,添加红色背景
+            
+            addBg: function () {
+                //each前面的this  谁调用 addBg  this指向谁！
+                return this.each(function (index, items) { //一个参数为索引值，一个参数为 当前操作的元素
+                    $(items).css('background', 'red');
+                })
+            }
+
+
+        })
+
+        $('div').eq(1).addBg().siblings().css('background','blue');
+
+
+        jQuery.extend({
+            Min : function(...num){
+                return Math.min(...num);
+            }
+        })
+        console.log($.Min(11,2,3,4,5,6));
+    </script>
+</body>
+
+</html>

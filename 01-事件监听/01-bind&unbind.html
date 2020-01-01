@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        section{
+            width:600px;
+            background:#000;
+        }
+        div{
+            width:100px;
+            height:100px;
+            background:#dd0;
+            margin:20px;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div></div>
+        <div></div>
+        <div></div>
+    </section>
+    <script src='./jquery-1.11.3.min.js'></script>
+    <script>
+        /*
+            bind()  事件监听
+                参数：
+                    1：事件类型
+                    2：数据（可以传递给事件对象）（事件对象e.data 接收数据）
+                    3：回调函数（事件处理程序）
+
+            unbind()  事件解绑
+                参数：
+                    1：解绑的事件类型
+                    2：解绑的方法（如果方法不传递。解绑所有）
+
+
+
+
+            注：可以完成多事件的绑定，   不能完成未来元素的事件绑定！
+        */
+
+        function fn1(e){
+            console.log(e.data);
+            console.log('单击事件');
+        }
+        function fn2(){
+            console.log('鼠标滑过触发')
+        }
+
+        //一个元素可绑定多个事件
+        $('section div').bind('click',1,fn1);
+        $('section div').bind('mouseover',fn2);
+        //解绑事件
+        // $('section div').unbind('click',fn1);
+        //解绑多个事件
+        $('section div').unbind('mouseover',function(){
+           
+            fn2();
+        });
+
+        // //动态创建节点
+        // $('<div></div>').appendTo($('section'));
+    </script>
+</body>
+</html>

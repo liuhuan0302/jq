@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        section{
+            width:600px;
+            background:#000;
+        }
+        div{
+            width:100px;
+            height:100px;
+            background:orange;
+            margin:20px;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div></div>
+        <div></div>
+        <div></div>
+    </section>
+
+    <script src="../01-事件监听/jquery-1.11.3.min.js"></script>
+    <script>
+        $('section').on('click',function(e){
+            e.stopPropagation();
+            console.log('父元素');
+        })
+        $('div').on('click',function(e){
+            e.stopPropagation();
+            console.log('子元素');
+        })
+
+
+
+        $(document).on('contextmenu',function(e){
+            e.preventDefault();
+            console.log(1);
+        })
+
+
+        /*
+            阻止事件冒泡
+                 e.stopPropagation();
+
+            清除默认行为：
+                e.preventDefault();
+        */
+    </script>
+</body>
+</html>

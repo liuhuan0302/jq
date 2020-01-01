@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        section{
+            width:600px;
+            background:#000;
+        }
+        div{
+            width:100px;
+            height:100px;
+            background:#dd0;
+            margin:20px;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div></div>
+        <div></div>
+        <div></div>
+    </section>
+
+    <script src="../01-事件监听/jquery-1.11.3.min.js"></script>
+    <script>
+        /*
+            event.target                  获取绑定事件的DOM元素    用$包裹转成jq对象。
+            event.type                    获取事件的类型
+            event.data                    获取事件中传递的数据
+            event.pageX/pageY              获取根据页面原点的X,Y值
+            event.which                   针对键盘和鼠标事件，这个属性能确定你到底按的是哪个键或按钮
+            event.altKey/shiftKey/ctrlKey/   返回 true、false
+        */
+       $('section div').on('click',function(e){
+           console.log(e.target);//打印的是DOM元素
+           console.log($(e.target))//打印的是jquery对象
+       })
+
+    $('section div').on('click',[1,2,4,5,6],function(e){
+          
+           console.log($(e.data))//打印的是传入的数据
+           console.log(e.pageX)
+       })
+
+    $(document).on('keydown',function(e){
+              console.log(e.which)
+      })
+        
+    </script>
+</body>
+</html>
